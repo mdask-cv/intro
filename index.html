@@ -520,6 +520,9 @@ The course covers programming languages like C++ and JAVA, Networking, Fundament
                       </div>
                       <div class="row">
                         <div class="col">
+			<div class="write-us-submit">
+				<div class="g-recaptcha" data-sitekey="6Le6KYoUAAAAAOBx_xpvhxYYH2qE3HN92bjSz6IR"></div>
+			</div>	
                           <button class="btn btn-primary" id="submit" type="submit">Send</button>
                         </div>
                       </div>
@@ -575,7 +578,11 @@ jQuery("form[name='contact-form']").validate({
              error.appendTo(element.next());
         },
         submitHandler: function(form){
-          jQuery('.loading-all').show();
+	var response = grecaptcha.getResponse();
+		if(response.length == 0) {
+			alert("Robot verification failed, please try again.");
+		}
+		else {	
           jQuery('#submit').attr('disabled',true);
           jQuery.ajax({
           type: "POST",
@@ -597,6 +604,7 @@ jQuery("form[name='contact-form']").validate({
                   jQuery('#submit').attr('disabled',false);
               }
            });
+		}
         }
     });
 		    
