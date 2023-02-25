@@ -27,7 +27,7 @@ h1{
     font-family: 'Kaushan Script', cursive;
   font-size:4em;
   letter-spacing:3px;
-  color:#5892FF ;
+  color:#378C3F ;
   margin:0;
   margin-bottom:20px;
 }
@@ -40,7 +40,7 @@ h1{
 }
 .go-home{
   color:#fff;
-  background:#5892FF;
+  background:#378C3F;
   border:none;
   padding:10px 50px;
   margin:30px 0;
@@ -50,20 +50,20 @@ h1{
 }
 .footer-like{
   margin-top: auto; 
-  background:#D7E6FE;
+  background:#378C3F;
   padding:6px;
   text-align:center;
 }
 .footer-like p{
   margin:0;
   padding:4px;
-  color:#5892FF;
+  color:#378C3F;
   font-family: 'Source Sans Pro', sans-serif;
   letter-spacing:1px;
 }
 .footer-like p a{
   text-decoration:none;
-  color:#5892FF;
+  color:#378C3F;
   font-weight:600;
 }
 
