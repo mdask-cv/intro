@@ -11,7 +11,6 @@
     <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
     <link href="css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
     <link href="css/main.css?ver=1.1.0" rel="stylesheet">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <noscript>
       <style type="text/css">
         [data-aos] {
@@ -490,7 +489,6 @@ The course covers programming languages like C++ and JAVA, Networking, Fundament
                         <div class="col">
                           <div class="input-group"><span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
                             <input class="form-control" type="text" name="name" placeholder="Name" required="required"/>
-							<span class="help-block"></span>
                           </div>
                         </div>
                       </div>
@@ -498,7 +496,6 @@ The course covers programming languages like C++ and JAVA, Networking, Fundament
                         <div class="col">
                           <div class="input-group"><span class="input-group-addon"><i class="fa fa-file-text"></i></span>
                             <input class="form-control" type="number" name="mobile" placeholder="Mobile" required="required"/>
-							<span class="help-block"></span>
                           </div>
                         </div>
                       </div>
@@ -506,7 +503,6 @@ The course covers programming languages like C++ and JAVA, Networking, Fundament
                         <div class="col">
                           <div class="input-group"><span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                             <input class="form-control" type="email" name="email" placeholder="E-mail" required="required"/>
-							<span class="help-block"></span>
                           </div>
                         </div>
                       </div>
@@ -520,9 +516,6 @@ The course covers programming languages like C++ and JAVA, Networking, Fundament
                       </div>
                       <div class="row">
                         <div class="col">
-			<div class="write-us-submit">
-				<div class="g-recaptcha" data-sitekey="6Le6KYoUAAAAAOBx_xpvhxYYH2qE3HN92bjSz6IR"></div>
-			</div>	
                           <button class="btn btn-primary" id="submit" type="submit">Send</button>
                         </div>
                       </div>
@@ -566,10 +559,10 @@ The course covers programming languages like C++ and JAVA, Networking, Fundament
 	 $(document).ready(function(){
 jQuery("form[name='contact-form']").validate({
         rules: {
-      name: {required: true, maxlength:50},
-      email: {required: true, maxlength:50},
-      mobile: {required:true,minlength:10,maxlength:12,number: true},
-      msg: {maxlength:255},
+		  name: {required: true, maxlength:50},
+		  email: {required: true, maxlength:50},
+		  mobile: {required:true,minlength:10,maxlength:15,number: true},
+		  msg: {maxlength:255},
         },
         messages: {
           msg: { maxlength: "Entered text exceeds 255 characters" }
@@ -579,22 +572,22 @@ jQuery("form[name='contact-form']").validate({
         },
         submitHandler: function(form){
 	var response = grecaptcha.getResponse();
-		if(response.length == 0) {
-			alert("Robot verification failed, please try again.");
-		}
-		else {	
+		<!-- if(response.length == 0) { -->
+			<!-- alert("Robot verification failed, please try again."); -->
+		<!-- } -->
+		<!-- else {	 -->
           jQuery('#submit').attr('disabled',true);
           jQuery.ajax({
           type: "POST",
           dataType : "JSON",
-          url:  "https://bindtree.com/contact-submit.php",
+          url:  "https://bindtree.com/contact",
           data:  new FormData(form),
           contentType: false,
           cache: false,
           processData:false,
           success: function(result){
-                  if(result==1){
-			location.href = 'https://mdask-cv.github.io/intro/success.html';
+                 if(result==1){
+					location.href = 'https://mdask-cv.github.io/intro/success.html';
                  }else{
                      jQuery('#submit').attr('disabled',false);
                  }
@@ -605,7 +598,7 @@ jQuery("form[name='contact-form']").validate({
               }
            });
 		}
-        }
+        <!-- } -->
     });
 		    
 	  });
