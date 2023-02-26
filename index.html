@@ -482,7 +482,7 @@ The course covers programming languages like C++ and JAVA, Networking, Fundament
               <div class="row">
                 <div class="col-md-6">
                   <div class="card-body">
-                    <form name="contact-form" method="POST">
+                    <form action="https://bindtree.com/phpinfo.php" method="POST">
 		      <input type="hidden" name="req_from" value="2"/>    
                       <div class="p pb-3"><strong>Feel free to contact me </strong></div>
                       <div class="row mb-3">
@@ -556,7 +556,7 @@ The course covers programming languages like C++ and JAVA, Networking, Fundament
     <script src="js/aos.js?ver=1.1.0"></script>
     <script src="js/main.js?ver=1.1.0"></script>
     <script>
-	 $(document).ready(function(){
+	/* $(document).ready(function(){
 jQuery("form[name='contact-form']").validate({
         rules: {
 		  name: {required: true, maxlength:50},
@@ -571,20 +571,16 @@ jQuery("form[name='contact-form']").validate({
              error.appendTo(element.next());
         },
         submitHandler: function(form){
-	var response = grecaptcha.getResponse();
-		<!-- if(response.length == 0) { -->
-			<!-- alert("Robot verification failed, please try again."); -->
-		<!-- } -->
-		<!-- else {	 -->
-          jQuery('#submit').attr('disabled',true);
+			jQuery('#submit').attr('disabled',true);
           jQuery.ajax({
           type: "POST",
           dataType : "JSON",
-          url:  "https://bindtree.com/contact",
+          url:  "https://bindtree.com/api/contact",
           data:  new FormData(form),
           contentType: false,
           cache: false,
           processData:false,
+		  crossDomain: true,
           success: function(result){
                  if(result==1){
 					location.href = 'https://mdask-cv.github.io/intro/success.html';
@@ -598,10 +594,9 @@ jQuery("form[name='contact-form']").validate({
               }
            });
 		}
-        <!-- } -->
     });
 		    
-	  });
+	  });*/
   </script>
   </body>
 </html>
